@@ -12,13 +12,15 @@ import vtkColorMaps from 'vtk.js/Sources/Rendering/Core/ColorTransferFunction/Co
 
 import vtkXMLImageDataReader from 'vtk.js/Sources/IO/XML/XMLImageDataReader';
 
+//import headsq from './headsq.vti';
+
 // ----------------------------------------------------------------------------
 // Standard rendering code setup
 // ----------------------------------------------------------------------------
-const test = () => {
+const test = (input_file) => {
 	
-const frames = [];
-frames.push(require(`./headsq.vti`));
+/*const frames = [];
+frames.push(require(`./headsq.vti`));*/
 
 const rootContainer = document.querySelector(
   '#hellow'
@@ -112,7 +114,9 @@ const mapper = vtkVolumeMapper.newInstance({ sampleDistance: 1.1 });
 //const reader = vtkHttpDataSetReader.newInstance({ fetchGzip: true });
 const reader = vtkXMLImageDataReader.newInstance();
 
-reader.setUrl(frames).then(() => {
+console.log(reader);
+
+reader.setUrl(input_file).then(() => {
   reader.loadData().then(() => {
     const imageData = reader.getOutputData();
     const dataArray = imageData.getPointData().getScalars();

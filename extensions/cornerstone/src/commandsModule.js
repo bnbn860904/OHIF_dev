@@ -189,10 +189,13 @@ const commandsModule = ({ servicesManager }) => {
 	  xhr.open('GET',dataUrl, true)
 	  xhr.send()
 	  var data ;
+	  var input_file
 	  xhr.onload = function(){
 		data = JSON.parse(this.responseText);
-	  console.log(data);}	
-	test();
+		input_file = `http://140.116.156.197:5000/upload`
+		test(input_file);
+		}	
+		
 	
 	},     //start-drawing
 	

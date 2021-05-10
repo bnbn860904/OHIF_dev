@@ -261,60 +261,9 @@ const definitions = [
     commandName: 'setCornerstoneLayout',
     context: 'ACTIVE_VIEWPORT::VTK',
   },
- /* {       //增加icon
-    id: 'More',
-    label: 'More',
-    icon: 'ellipse-circle',
-    buttons: [
-             {
-              id: 'Zoom',
-              label: 'Zoom',
-              icon: 'search-plus',
-              type: TOOLBAR_BUTTON_TYPES.SET_TOOL_ACTIVE,
-              commandName: 'setToolActive',
-              commandOptions: { toolName: 'Zoom' },
-            },
-			{
-    id: 'Length',
-    label: 'Length',
-    icon: 'measure-temp',
-    //
-    type: TOOLBAR_BUTTON_TYPES.SET_TOOL_ACTIVE,
-    commandName: 'setToolActive',
-    commandOptions: { toolName: 'Length' },
-  },
-  {
-    id: 'ArrowAnnotate',
-    label: 'Annotate',
-    icon: 'measure-non-target',
-    //
-    type: TOOLBAR_BUTTON_TYPES.SET_TOOL_ACTIVE,
-    commandName: 'setToolActive',
-    commandOptions: { toolName: 'ArrowAnnotate' },
-  },
-  {
-    id: 'RectangleScissors',
-    label: 'Angle',
-    icon: 'angle-left',
-    //
-    type: TOOLBAR_BUTTON_TYPES.SET_TOOL_ACTIVE,
-    commandName: 'setToolActive',
-    commandOptions: { toolName: 'Test' },
-  },
-        ],
-  },*/    //增加icon
 ];
 
 export default {
   definitions,
   defaultContext: 'ACTIVE_VIEWPORT::CORNERSTONE',
 };
-
-/*var dataUrl= "https://reqres.in/api/users/2"
-var xhr = new XMLHttpRequest()
-xhr.open('GET',dataUrl, true)
-xhr.send()
-xhr.onload = function(){
-    var data = JSON.parse(this.responseText);
-    console.log(data);
-}*/
