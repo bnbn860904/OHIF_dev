@@ -59,7 +59,7 @@ const TOOLBAR_BUTTON_TYPES = {
         commandName: 'setToolActive',
         commandOptions: { toolName: 'RectangleScissors' },
       },
-      {
+      /*{
         id: 'FreehandRoi2',
         label: 'top slice',
         icon: 'measure-temp',
@@ -85,7 +85,16 @@ const TOOLBAR_BUTTON_TYPES = {
         type: TOOLBAR_BUTTON_TYPES.SET_TOOL_ACTIVE,
         commandName: 'setToolActive',
         commandOptions: { toolName: 'FreehandRoi4' },
-      }, 	  
+      },
+      {
+        id: 'FreehandRoi',
+        label: 'FreehandRoi',
+        icon: 'measure-temp',
+        //
+        type: TOOLBAR_BUTTON_TYPES.SET_TOOL_ACTIVE,
+        commandName: 'setToolActive',
+        commandOptions: { toolName: 'FreehandRoi' },
+      },*/  
     ],
   },
 ]; 

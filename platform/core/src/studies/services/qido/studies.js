@@ -84,6 +84,8 @@ function resultDataToStudies(resultData) {
   const studies = [];
 
   if (!resultData || !resultData.length) return;
+  
+  console.log(resultData);  
 
   resultData.forEach(study =>
     studies.push({
@@ -132,6 +134,8 @@ export default function Studies(server, filter) {
   const options = {
     queryParams,
   };
+  console.log(queryParams);
+  console.log(dicomWeb);
 
   return dicomWeb.searchForStudies(options).then(resultDataToStudies);
 }

@@ -11,13 +11,13 @@ export default function setMPRLayout(
     const viewports = [];
     const numViewports = numRows * numColumns;
 
-    /*if (viewportPropsArray && viewportPropsArray.length !== numViewports) {
+    if (viewportPropsArray && viewportPropsArray.length !== numViewports) {
       reject(
         new Error(
           'viewportProps is supplied but its length is not equal to numViewports'
         )
       );
-    }*/
+    }
 	
     const viewportSpecificData = {};
 
@@ -32,19 +32,20 @@ export default function setMPRLayout(
     viewports.forEach((viewport, index) => {
       apis[index] = null;
       const viewportProps = viewportPropsArray[index];
-      /*viewports[index] = Object.assign({}, viewports[index], {
+	  if(numRows != 2 || numColumns != 2){ 
+      viewports[index] = Object.assign({}, viewports[index], {
         vtk: {
           mode: 'mpr', // TODO: not used
           afterCreation: api => {
             apis[index] = api;
 
-            /*if (apis.every(a => !!a)) {
+            if (apis.every(a => !!a)) {
               resolve(apis);
             }
           },
           ...viewportProps,
         },
-      });*/
+      });}
     });
 	
     setLayoutAndViewportData(
@@ -53,7 +54,7 @@ export default function setMPRLayout(
         numColumns,
         viewports,
       },
-      //viewportSpecificData
+      viewportSpecificData
     );
   });
 }

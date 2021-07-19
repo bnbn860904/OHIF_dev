@@ -32,6 +32,7 @@ import edit from './icons/edit.svg';
 import ellipseCircle from './icons/ellipse-circle.svg';
 import ellipseH from './icons/ellipse-h.svg';
 import ellipseV from './icons/ellipse-v.svg';
+import eraser from './icons/eraser.svg';
 import exclamationCircle from './icons/exclamation-circle.svg';
 import exclamationTriangle from './icons/exclamation-triangle.svg';
 import fastBackward from './icons/fast-backward.svg';
@@ -92,6 +93,7 @@ import envelopeSquare from './icons/envelope-square.svg';
 
 const ICONS = {
   eye,
+  eraser,
   'eye-closed': eyeClosed,
   brush,
   scissors,

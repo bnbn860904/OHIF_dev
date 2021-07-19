@@ -255,6 +255,9 @@ function StudyListRoute(props) {
             const viewerPath = RoutesUtil.parseViewerPath(appConfig, server, {
               studyInstanceUIDs: studyInstanceUID,
             });
+			//console.log(appConfig);
+			//console.log(server);
+			//console.log(studyInstanceUID);
             history.push(viewerPath);
           }}
           // Table Header
@@ -379,6 +382,7 @@ async function getStudyList(
       // StudyTime: "160956.0"
     };
   });
+  //console.log(studies);
 
   // For our smaller displays, map our field name to a single
   // field we can actually sort by.
@@ -416,6 +420,7 @@ async function getStudyList(
  * @returns
  */
 function _sortStudies(studies, field, order) {
+	//console.log(studies);
   // Make sure our StudyDate is in a valid format and create copy of studies array
   const sortedStudies = studies.map(study => {
     if (!moment(study.StudyDate, 'MMM DD, YYYY', true).isValid()) {
@@ -490,7 +495,7 @@ async function _fetchStudies(
       ],
       allFields
     );
-
+	//console.log(firstSet); //this is []
     if (firstSet.length) {
       queryFiltersArray = firstSet;
     }
@@ -511,11 +516,14 @@ async function _fetchStudies(
       queryFiltersArray = firstSet.concat(secondSet);
     }
   }
-
+////////////////////////////////////讀進studylist在這下面
   const queryPromises = [];
 
   queryFiltersArray.forEach(filter => {
     const searchStudiesPromise = OHIF.studies.searchStudies(server, filter);
+	//console.log(server);
+	//console.log(filter);
+	//console.log(searchStudiesPromise);
     queryPromises.push(searchStudiesPromise);
   });
 
@@ -532,6 +540,7 @@ async function _fetchStudies(
       });
     }
   });
+  //console.log(studies);
 
   return studies;
 }

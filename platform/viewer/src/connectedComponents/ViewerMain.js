@@ -179,8 +179,11 @@ class ViewerMain extends Component {
     const viewportData = values(viewportSpecificData);
 
     return (
-      <div className="ViewerMain">
-        {this.state.displaySets.length && (
+      <div className="ViewerMain" href="http://yahoo.com">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		{/*<canvas id="tutorial" width="150" height="150" style={{float : 'left', paddingRight : '5px'}}></canvas>*/}
+		{this.state.displaySets.length && (
           <ConnectedViewportGrid
             isStudyLoaded={this.props.isStudyLoaded}
             studies={this.props.studies}
@@ -189,7 +192,7 @@ class ViewerMain extends Component {
           >
             {/* Children to add to each viewport that support children */}
           </ConnectedViewportGrid>
-        )}
+        )}		
       </div>
     );
   }

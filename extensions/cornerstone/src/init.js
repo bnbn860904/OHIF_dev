@@ -65,7 +65,13 @@ export default function init({ servicesManager, configuration }) {
       csTools.EllipticalRoiTool,
       csTools.DragProbeTool,
       csTools.RectangleRoiTool,
-	  //csTools.RectangleScissorsTool,
+	  csTools.FreehandRoiTool2,
+	  csTools.FreehandRoiTool3,
+	  csTools.FreehandRoiTool4,
+	  csTools.FreehandRoiTool_CV,
+	  csTools.FreehandRoiTool_AI,
+	  csTools.Brush2Tool,
+	  csTools.FreehandRoiTool,
     ],
     other: [
       csTools.PanTool,
@@ -74,6 +80,7 @@ export default function init({ servicesManager, configuration }) {
       csTools.WwwcRegionTool,
       csTools.MagnifyTool,
       csTools.StackScrollTool,
+	  csTools.EraserTool,
       csTools.StackScrollMouseWheelTool,
       csTools.OverlayTool,
     ],
@@ -105,7 +112,7 @@ export default function init({ servicesManager, configuration }) {
     // An alternative approach would be to remove the `drawHandlesOnHover` config
     // from the supported configuration properties in `cornerstone-tools`
     const toolsWithHideableHandles = annotations.filter(
-      tool => !['RectangleRoiTool', 'EllipticalRoiTool'].includes(tool.name)
+      tool => !['RectangleRoiTool', 'EllipticalRoiTool', 'FreehandRoiTool_CV'].includes(tool.name)
     );
 
     let parsedProps = { ...props };

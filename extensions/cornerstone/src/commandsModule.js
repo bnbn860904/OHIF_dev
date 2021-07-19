@@ -8,6 +8,7 @@ import CornerstoneViewportDownloadForm from './CornerstoneViewportDownloadForm';
 
 //
 import test from './test.js';
+import total3D from './total3D.js';
 //
 
 
@@ -20,7 +21,7 @@ const refreshCornerstoneViewports = () => {
   cornerstone.getEnabledElements().forEach(enabledElement => {
     if (enabledElement.image) {
       cornerstone.updateImage(enabledElement.element);
-	  //console.log(enabledElement.image.cachedLut['lutArray']);
+	  console.log(enabledElement.image.imageId);
 	  //console.log(enabledElement);
     }
   });
@@ -163,13 +164,9 @@ const commandsModule = ({ servicesManager }) => {
     },
 	    //draw_test
 	draw_test : ({ viewports }) => {
-		
-		console.log('hi');
-
-	
-		cornerstoneTools.setToolActive('Brush2', { mouseButtonMask: 1 });
-
-	
+			
+			cornerstoneTools.setToolActive('Brush2', { mouseButtonMask: 1 })
+			
 	},  	//draw_test
 		    //draw_CV
 	draw_CV : ({ viewports }) => {
@@ -192,12 +189,39 @@ const commandsModule = ({ servicesManager }) => {
 	  var input_file
 	  xhr.onload = function(){
 		data = JSON.parse(this.responseText);
-		input_file = `http://140.116.156.197:5000/upload`
+		console.log(data);
+		input_file = `http://140.116.156.197:5000/upload?number=volume99`
 		test(input_file);
 		}	
-		
-	
 	},     //start-drawing
+	
+	total3D_drawing : ({ viewports }) => {
+		
+	    console.log('total3D_drawing');
+		const element = getEnabledElement(viewports.activeViewportIndex);
+		const enabledElement = cornerstone.getEnabledElement(element);
+		console.log(enabledElement.image.imageId);
+		
+	    var patient_id = (enabledElement.image.imageId).split("/");
+	    var patient_id = patient_id[2] + "-" + patient_id[3] + "-" + patient_id[4] + "-" + patient_id[5] + "-" + patient_id[6] + "-" + patient_id[7];		
+		
+		var dataUrl= "http://140.116.156.197:5000/dcm2vti?number=" + patient_id;		
+		var xhr = new XMLHttpRequest()
+		xhr.open('GET',dataUrl, true)
+		xhr.send()
+		var data;
+		xhr.onload = function(){
+			data = JSON.parse(this.responseText);
+			console.log(data.series_id);
+			//var input_file = `http://140.116.156.197:5000/upload_3D`
+			var input_file = `http://140.116.156.197:5000/upload_3D?number=` + data.series_id;
+			total3D(input_file);
+			}
+		/*var input_file
+		input_file = `http://140.116.156.197:5000/upload_3D`
+		total3D(input_file);*/
+		
+	},     //total3D_drawing
 	
     showDownloadViewportModal: ({ title, viewports }) => {
       const activeViewportIndex = viewports.activeViewportIndex;
@@ -315,6 +339,7 @@ const commandsModule = ({ servicesManager }) => {
       frameIndex,
       activeViewportIndex,
     }) => {
+
       const study = studyMetadataManager.get(StudyInstanceUID);
 
       const displaySet = study.findDisplaySet(ds => {
@@ -460,6 +485,11 @@ const commandsModule = ({ servicesManager }) => {
     },
     start_drawing: {  //start_drawing
       commandFn: actions.start_drawing,
+      storeContexts: ['viewports'],
+      options: {},
+    },	
+    total3D_drawing: {  //total3D_drawing
+      commandFn: actions.total3D_drawing,
       storeContexts: ['viewports'],
       options: {},
     },	

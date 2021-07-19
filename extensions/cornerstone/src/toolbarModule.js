@@ -225,8 +225,8 @@ const definitions = [
           behavior: TOOLBAR_BUTTON_BEHAVIORS.DOWNLOAD_SCREEN_SHOT,
           togglable: true,
         },
-      },
-	  { //draw_test
+      },	  
+	  /*{ //draw_test
         id: 'tumor segmentation(AI)',
         label: 'tumor segmentation(AI)',
         icon: 'edit',
@@ -241,16 +241,101 @@ const definitions = [
         //
         type: TOOLBAR_BUTTON_TYPES.COMMAND,
         commandName: 'draw_CV',
-      },
+      },*/
     ],
   },
   {
-    id: 'start-drawing',
-    label: 'start-drawing',
-    icon: 'youtube',
-    //
-    type: TOOLBAR_BUTTON_TYPES.COMMAND,
-    commandName: 'start_drawing',
+    id: 'tumor segmentation',
+    label: 'tumor segmentation',
+    icon: 'edit',
+    buttons: [
+	      {
+        id: 'Eraser',
+        label: 'Eraser',
+        icon: 'eraser',
+        //
+        type: TOOLBAR_BUTTON_TYPES.SET_TOOL_ACTIVE,
+        commandName: 'setToolActive',
+        commandOptions: { toolName: 'Eraser' },
+      },
+	  	{ //draw_CV
+        id: 'tumor segmentation(CV)',
+        label: 'tumor segmentation(CV)',
+        icon: 'edit',
+        //
+        type: TOOLBAR_BUTTON_TYPES.SET_TOOL_ACTIVE,
+        commandName: 'setToolActive',
+        commandOptions: { toolName: 'FreehandRoi_CV' },
+      },
+		{ //draw_test
+        id: 'tumor segmentation(AI_B)',
+        label: 'tumor segmentation(AI_B)',
+        icon: 'edit',
+        //
+        type: TOOLBAR_BUTTON_TYPES.SET_TOOL_ACTIVE,
+        commandName: 'setToolActive',
+        commandOptions: { toolName: 'Brush2' },
+      },	  
+		{ //draw_test
+        id: 'tumor segmentation(AI_R)',
+        label: 'tumor segmentation(AI_R)',
+        icon: 'edit',
+        //
+        type: TOOLBAR_BUTTON_TYPES.SET_TOOL_ACTIVE,
+        commandName: 'setToolActive',
+        commandOptions: { toolName: 'FreehandRoi_AI' },
+      },
+	],
+  },
+  {
+    id: 'TMB_Semi_automated',
+    label: 'TMB_Semi_automated',
+    icon: 'cube',
+    buttons: [  
+	   {
+        id: 'FreehandRoi2',
+        label: 'top slice',
+        icon: 'measure-temp',
+        //
+        type: TOOLBAR_BUTTON_TYPES.SET_TOOL_ACTIVE,
+        commandName: 'setToolActive',
+        commandOptions: { toolName: 'FreehandRoi2' },
+      },
+      {
+        id: 'FreehandRoi3',
+        label: 'middle slice',
+        icon: 'measure-temp',
+        //
+        type: TOOLBAR_BUTTON_TYPES.SET_TOOL_ACTIVE,
+        commandName: 'setToolActive',
+        commandOptions: { toolName: 'FreehandRoi3' },
+      },
+      {
+        id: 'FreehandRoi4',
+        label: 'bottom slice',
+        icon: 'measure-temp',
+        //
+        type: TOOLBAR_BUTTON_TYPES.SET_TOOL_ACTIVE,
+        commandName: 'setToolActive',
+        commandOptions: { toolName: 'FreehandRoi4' },
+      },
+	  {
+		id: 'start-drawing',
+		label: 'start-drawing',
+		icon: 'youtube',
+		//
+		type: TOOLBAR_BUTTON_TYPES.COMMAND,
+		commandName: 'start_drawing',
+	  },
+	  {
+		id: 'Exit2DMPR',
+		label: 'Exit 3D segmentation',
+		icon: 'times',
+		//
+		type: TOOLBAR_BUTTON_TYPES.COMMAND,
+		commandName: 'setCornerstoneLayout',
+	  },  
+	],
   },
   {
     id: 'Exit2DMPR',
@@ -260,6 +345,14 @@ const definitions = [
     type: TOOLBAR_BUTTON_TYPES.COMMAND,
     commandName: 'setCornerstoneLayout',
     context: 'ACTIVE_VIEWPORT::VTK',
+  },
+  {
+    id: '3D',
+    label: '3D Perspective view',
+    icon: 'sphere',
+    //
+    type: TOOLBAR_BUTTON_TYPES.COMMAND,
+    commandName: 'total3D_drawing',
   },
 ];
 

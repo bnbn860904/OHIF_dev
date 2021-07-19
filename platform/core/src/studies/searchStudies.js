@@ -17,9 +17,10 @@ export default function searchStudies(server, filter) {
   if (studySearchPromises.has(promiseKey)) {
     return studySearchPromises.get(promiseKey);
   } else {
-    const promise = Studies(server, filter);
-
+    const promise = Studies(server, filter); //24個ID拿回來了
+	
     studySearchPromises.set(promiseKey, promise);
+	
 
     return promise;
   }

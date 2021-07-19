@@ -138,9 +138,9 @@ const definitions = [
     context: 'ACTIVE_VIEWPORT::CORNERSTONE',
   },
   ///////////////////////////////
-    {
+  {
     id: '3DMPR',
-    label: '3D auto-segmentation',
+    label: 'TMB_Semi_automated',
     icon: 'cube',
     //
     CustomComponent: VTKMPRToolbarButton,

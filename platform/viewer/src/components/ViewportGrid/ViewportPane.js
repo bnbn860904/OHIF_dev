@@ -28,7 +28,7 @@ const ViewportPane = function (props) {
     }),
   });
   
-  if(viewportIndex == 1){
+  if(viewportIndex == 3){
 	  //test();
 	  return (
 	<div 
@@ -54,8 +54,9 @@ const ViewportPane = function (props) {
       ref={drop}
       data-cy={`viewport-container-${viewportIndex}`}
     >
+	<div id = 'total3D'></div> 
       {children}
-    </div>
+    </div>	
   );
 };
 
